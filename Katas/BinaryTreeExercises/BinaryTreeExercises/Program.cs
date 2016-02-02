@@ -19,10 +19,13 @@ namespace BinaryTreeExercises
             Console.ReadKey();
             tree.BFS(tree, (n) => Console.WriteLine(n.Value));
             Console.ReadKey();
+            tree.Invert();
+            tree.BFS(tree, (n) => Console.WriteLine(n.Value));
+            Console.ReadKey();
         }
 
         /// <summary>
-        /// Retruns a tree
+        /// Returns a tree
         ///     A
         ///    / \
         ///   B   C

@@ -37,9 +37,10 @@ namespace BinaryTreeExercises
             visit(n);
         }
 
+        
         public void BFS(Tree tree, Action<Node> visit)
         {
-            if (tree.Root == null)
+            if (tree?.Root == null)
                 return;
             var q = new Queue<Node>();
             q.Enqueue(tree.Root);
@@ -52,6 +53,23 @@ namespace BinaryTreeExercises
                 if (node.Right != null)
                     q.Enqueue(node.Right);
             }
+
+        }
+
+        public void Invert()
+        {
+            Invert(this.Root);
+        }
+
+        public void Invert(Node n)
+        {
+            if (n == null)
+                return;
+            var temp = n.Right;
+            n.Right = n.Left;
+            n.Left = temp;
+            Invert(n.Left);
+            Invert(n.Right);
 
         }
     }
